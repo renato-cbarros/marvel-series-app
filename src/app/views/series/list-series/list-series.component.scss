@@ -1,7 +1,7 @@
 .list-container {
   width: 100%;
-  height: 100%;
-  background-color: #ffffff;
+  height: 101%;
+  background-color: #212121;
   transition: 1s ease-in;
 
   .list-content {
@@ -14,7 +14,6 @@
       width: 340px;
       max-width: 344px;
       margin: 20px 10px;
-      background-color: #000000ce;
       cursor: pointer;
       transition: 0.3s ease-in-out;
 
@@ -55,22 +54,6 @@
 .divider {
   height: 7px;
   background-color: #c2185b;
-}
-
-.custom-scroll {
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  &::-webkit-scrollbar-track {
-    border-radius: 100px;
-    background: #ffffff38;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 100px;
-    background-color: #ffffff36;
-  }
 }
 
 .spinner-container {

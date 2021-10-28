@@ -2,6 +2,7 @@ import { Character } from './Character';
 import { Comic } from './Comic';
 import { Creator } from './Creator';
 import { Storie } from './Storie';
+import { Event } from './Event';
 
 export interface Serie {
   characters: Character;
@@ -12,8 +13,8 @@ export interface Serie {
   events: Event;
   id: number;
   modified: string;
-  next: string;
-  previous: string;
+  next: { name: string; resourceURI: string };
+  previous: { name: string; resourceURI: string };
   rating: string;
   resourceURI: string;
   startYear: number;

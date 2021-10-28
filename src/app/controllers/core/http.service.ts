@@ -10,6 +10,7 @@ export class HttpService<T> {
   constructor(private httpClient: HttpClient) {}
 
   get$ = (api: string, params?: HttpParams): Observable<T> => {
+    if (!params) params = new HttpParams();
     params = params
       ?.append(environment.TS.split('=')[0], environment.TS.split('=')[1])
       .append(

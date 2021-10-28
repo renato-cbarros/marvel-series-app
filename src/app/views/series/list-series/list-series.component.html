@@ -7,7 +7,11 @@
     [infiniteScrollThrottle]="throttle"
     (scrolled)="onScrollDown()"
   >
-    <mat-card class="serie-card" *ngFor="let serie of series">
+    <mat-card
+      *ngFor="let serie of series"
+      [routerLink]="['/home/more-datails', serie.id]"
+      class="serie-card"
+    >
       <mat-card-header class="serie-card-header custom-scroll">
         <mat-card-title>{{ serie.title }}</mat-card-title>
         <mat-card-subtitle>{{ serie.rating }}</mat-card-subtitle>

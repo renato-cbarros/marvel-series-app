@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListSeriesComponent } from './list-series/list-series.component';
+import { MoreDetailsSerieComponent } from './more-details-serie/more-details-serie.component';
 import { SeriesComponent } from './series.component';
 
 const routes: Routes = [
@@ -9,6 +10,7 @@ const routes: Routes = [
     component: SeriesComponent,
     children: [
       { path: 'list', component: ListSeriesComponent },
+      { path: 'more-datails/:id', component: MoreDetailsSerieComponent },
       { path: '', redirectTo: 'list', pathMatch: 'full' },
       { path: '**', redirectTo: 'list' },
     ],

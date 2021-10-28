@@ -12,7 +12,7 @@ import { SerieService } from 'src/app/controllers/serie/serie.service';
 })
 export class ListSeriesComponent implements OnInit {
   sum = 10;
-  throttle = 300;
+  throttle = 500;
   scrollDistance = 1;
   scrollUpDistance = 2;
 

@@ -1,0 +1,136 @@
+<section *ngIf="serieData" class="more-details-container">
+  <div class="content-details">
+    <div class="content-details-texts">
+      <h2 class="details-texts-title">{{ serieData?.title }}</h2>
+      <div class="details-texts">
+        <span [hidden]="!serieData?.startYear">
+          <mat-icon color="primary" class="details-texts-icon"
+            >calendar_today</mat-icon
+          >
+          Start year: {{ serieData?.startYear }}
+        </span>
+        <span [hidden]="!serieData?.endYear">
+          <mat-icon color="primary" class="details-texts-icon"
+            >event_busy</mat-icon
+          >
+          End year: {{ serieData?.endYear }}
+        </span>
+        <span [hidden]="!serieData?.modified">
+          <mat-icon color="primary" class="details-texts-icon"
+            >edit_calendar</mat-icon
+          >
+          Modified: {{ serieData?.modified | date }}
+        </span>
+      </div>
+      <p class="detail-text custom-scroll" [hidden]="!serieData?.description">
+        {{ serieData?.description }}
+      </p>
+      <div class="details-texts">
+        <span [hidden]="!serieData?.rating">
+          <mat-icon color="primary" class="details-texts-icon"
+            >thumbs_up_down</mat-icon
+          >
+          Rating: {{ serieData?.rating }}
+        </span>
+        <span [hidden]="!serieData?.type">
+          <mat-icon color="primary" class="details-texts-icon"
+            >error_outline</mat-icon
+          >
+          Type: {{ serieData?.type }}
+        </span>
+      </div>
+    </div>
+    <div class="content-details-cover">
+      <img
+        class="img-cover"
+        [src]="
+          serieData?.thumbnail?.path + '.' + serieData?.thumbnail?.extension
+        "
+        [alt]="serieData?.title"
+      />
+
+      <img
+        class="img-sample"
+        [src]="
+          serieData?.thumbnail?.path + '.' + serieData?.thumbnail?.extension
+        "
+        [alt]="serieData?.title"
+      />
+    </div>
+  </div>
+
+  <div class="content-extra">
+    <mat-tab-group>
+      <mat-tab *ngIf="serieData.creators.available > 0" label="Creators">
+        <div class="content-extra-tab custom-scroll">
+          <mat-card
+            *ngFor="let creator of serieData.creators.items"
+            class="extra-card custom-scroll"
+          >
+            <mat-card-title>{{ creator.name }}</mat-card-title>
+            <mat-card-subtitle>{{ creator.role }}</mat-card-subtitle>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab
+        *ngIf="serieData.characters.available > 0"
+        class="content-extra-tab"
+        label="Characters"
+      >
+        <div class="content-extra-tab custom-scroll">
+          <mat-card
+            *ngFor="let character of serieData.characters.items"
+            class="extra-card custom-scroll"
+          >
+            <mat-card-title>{{ character.name }}</mat-card-title>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab *ngIf="serieData.stories.available > 0" label="Stories">
+        <div class="content-extra-tab custom-scroll">
+          <mat-card
+            *ngFor="let storie of serieData.stories.items"
+            class="extra-card custom-scroll"
+          >
+            <mat-card-title>{{ storie.name }}</mat-card-title>
+            <mat-card-subtitle>{{ storie.type }}</mat-card-subtitle>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab *ngIf="serieData.comics.available > 0" label="Comics">
+        <div class="content-extra-tab custom-scroll">
+          <mat-card
+            *ngFor="let comic of serieData.comics.items"
+            class="extra-card custom-scroll"
+          >
+            <mat-card-title>{{ comic.name }}</mat-card-title>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab *ngIf="serieData.events.available > 0" label="Events">
+        <div class="content-extra-tab custom-scroll">
+          <mat-card
+            *ngFor="let event of serieData.events.items"
+            class="extra-card custom-scroll"
+          >
+            <mat-card-title>{{ event.name }}</mat-card-title>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab *ngIf="serieData.previous" label="Previous">
+        <div class="content-extra-tab custom-scroll">
+          <mat-card class="extra-card custom-scroll">
+            <mat-card-title>{{ serieData.previous.name }}</mat-card-title>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab *ngIf="serieData.next" label="Next">
+        <div class="content-extra-tab custom-scroll">
+          <mat-card class="extra-card custom-scroll">
+            <mat-card-title>{{ serieData.next.name }}</mat-card-title>
+          </mat-card>
+        </div></mat-tab
+      >
+    </mat-tab-group>
+  </div>
+</section>

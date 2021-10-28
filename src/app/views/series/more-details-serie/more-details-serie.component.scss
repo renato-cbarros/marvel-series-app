@@ -1,0 +1,136 @@
+.more-details-container {
+  width: 100%;
+  height: 101%;
+  background-color: #212121;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 50% 50%;
+  grid-template-areas:
+    "content-details"
+    "content-extra";
+}
+
+.content-details {
+  width: 100%;
+  height: 100%;
+  grid-area: content-details;
+  position: relative;
+  background-color: #212121;
+  overflow: hidden;
+
+  .content-details-texts {
+    width: 55%;
+    padding: 16px 0 16px 16px;
+    z-index: 100;
+    position: absolute;
+    color: #ffffff;
+
+    > div,
+    p {
+      padding: 5px 10px;
+    }
+    .details-texts-title {
+      font-size: 2em;
+      text-shadow: 0.1em 0.1em 0.2em #000000;
+      text-transform: uppercase;
+    }
+    .details-texts {
+      span {
+        font-size: 1.1em;
+        margin: 10px 5px;
+        text-shadow: 0.1em 0.1em 0.2em #000000;
+        text-transform: uppercase;
+      }
+      .details-texts-icon {
+        width: fit-content;
+        height: max-content;
+        font-size: 1em;
+      }
+    }
+    .detail-text {
+      max-height: 18vh;
+      font-size: 1.5em;
+      margin: 10px 5px;
+      text-shadow: 0.1em 0.1em 0.2em #000000;
+      overflow: auto;
+    }
+  }
+
+  .content-details-cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+
+    .img-cover {
+      position: absolute;
+      z-index: 1;
+      filter: blur(15px) brightness(50%);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: 0.3s ease-in-out;
+    }
+
+    .img-sample {
+      position: absolute;
+      z-index: 2;
+      margin-left: 55%;
+      width: 40%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top;
+      transition: 0.3s ease-in-out;
+    }
+  }
+}
+
+.content-details:hover {
+  .content-details-cover {
+    .img-cover {
+      width: 105%;
+      height: 105%;
+    }
+
+    .img-sample {
+      width: 45%;
+      height: 105%;
+    }
+  }
+}
+
+.content-extra {
+  width: 100%;
+  max-height: 100%;
+  grid-area: content-extra;
+
+  mat-tab-group {
+    width: 100%;
+    height: 100%;
+  }
+
+  .content-extra-tab {
+    padding: 16px;
+    width: 100%;
+    height: 100%;
+    max-height: 50vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    overflow: auto;
+  }
+  .extra-card {
+    width: 18%;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .extra-card:hover {
+    width: 19%;
+    margin-top: -5px;
+  }
+}

@@ -24,4 +24,9 @@ export class SerieService {
           .append('offset', offset)
       )
       .pipe(map((data: Data) => data.data.results));
+
+  findSerieById = (id: string): Observable<Serie[]> =>
+    this.httpService
+      .get$(`/v1/public/series/${id}`)
+      .pipe(map((data: Data) => data.data.results));
 }
