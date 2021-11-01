@@ -1,0 +1,54 @@
+<section class="search-container">
+  <section class="search-form-container">
+    <form
+      [formGroup]="formDataSearch"
+      *ngIf="formDataSearch"
+      class="search-form"
+    >
+      <div class="form-group">
+        <mat-form-field class="form-field" appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="titleStartsWith" />
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="fill">
+          <mat-label>Start Year</mat-label>
+          <input
+            matInput
+            type="number"
+            min="1900"
+            max="3000"
+            formControlName="startYear"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="fill">
+          <mat-label>Modified Since</mat-label>
+          <input matInput type="date" formControlName="modifiedSince" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Series Type</mat-label>
+          <mat-select formControlName="seriesType">
+            <mat-option
+              *ngFor="let type of seriesTypeSelect"
+              [value]="seriesType[type]"
+            >
+              {{ type }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+  </section>
+
+  <app-list-cards
+    class="container-list"
+    [isTotalItems]="false"
+    [items]="10"
+    [accumItems]="0"
+    [callBack]="getList"
+    [refresh]="refresh$"
+  >
+  </app-list-cards>
+</section>

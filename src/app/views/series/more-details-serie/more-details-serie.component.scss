@@ -127,10 +127,9 @@
   .extra-card {
     width: 18%;
     transition: 0.3s ease-in-out;
-    cursor: pointer;
+    cursor: default;
   }
   .extra-card:hover {
-    width: 19%;
     margin-top: -5px;
   }
 }

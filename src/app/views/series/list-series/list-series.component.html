@@ -1,40 +1,6 @@
-<section class="list-container">
-  <div
-    class="list-content"
-    infinite-scroll
-    [infiniteScrollDistance]="scrollDistance"
-    [infiniteScrollUpDistance]="scrollUpDistance"
-    [infiniteScrollThrottle]="throttle"
-    (scrolled)="onScrollDown()"
-  >
-    <mat-card
-      *ngFor="let serie of series"
-      [routerLink]="['/home/more-datails', serie.id]"
-      class="serie-card"
-    >
-      <mat-card-header class="serie-card-header custom-scroll">
-        <mat-card-title>{{ serie.title }}</mat-card-title>
-        <mat-card-subtitle>{{ serie.rating }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-divider class="divider"></mat-divider>
-      <img
-        class="serie-card-img"
-        mat-card-image
-        [src]="serie.thumbnail.path + '.' + serie.thumbnail.extension"
-        [alt]="serie.title"
-        loading="lazy"
-      />
-      <mat-card-content
-        class="serie-card-content custom-scroll"
-        *ngIf="serie.description"
-      >
-        <p>
-          {{ serie.description }}
-        </p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div class="spinner-container">
-    <mat-spinner></mat-spinner>
-  </div>
-</section>
+<app-list-cards
+  [isTotalItems]="false"
+  [items]="10"
+  [accumItems]="0"
+  [callBack]="getList"
+></app-list-cards>

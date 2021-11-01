@@ -7,11 +7,32 @@
         </a>
       </h1>
 
-      <mat-form-field class="search-field">
+      <ul class="nav-links">
+        <li>
+          <a
+            mat-button
+            color="primary"
+            [routerLink]="['/home/list']"
+            routerLinkActive="active-link"
+            >All</a
+          >
+        </li>
+        <li>
+          <a
+            mat-button
+            color="primary"
+            [routerLink]="['/home/search']"
+            routerLinkActive="active-link"
+            >Search</a
+          >
+        </li>
+      </ul>
+
+      <!-- <mat-form-field class="search-field">
         <mat-label>Search...</mat-label>
         <input matInput type="text" />
         <mat-icon matSuffix>search</mat-icon>
-      </mat-form-field>
+      </mat-form-field> -->
     </mat-toolbar>
   </nav>
 </header>

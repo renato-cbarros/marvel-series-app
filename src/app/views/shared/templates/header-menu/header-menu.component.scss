@@ -13,12 +13,23 @@
 }
 
 .logo {
-  flex: 2;
+  flex: 0.5;
   a {
     text-align: left;
     font-size: 1.1rem;
     text-transform: uppercase;
     max-width: fit-content;
+  }
+}
+
+.nav-links {
+  flex: 3;
+  display: flex;
+  text-transform: uppercase;
+
+  .active-link {
+    background-color: #c2185c18;
+    border-bottom: 3px solid #c2185b;
   }
 }
 
