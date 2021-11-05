@@ -6,7 +6,7 @@ import { Directive, HostBinding, HostListener } from '@angular/core';
 export class ShowBtnBelowVhDirective {
   private display!: string;
 
-  @HostBinding('style.display') get setDisplay() {
+  @HostBinding('style.display') get getDisplay() {
     return this.display;
   }
 
@@ -17,8 +17,4 @@ export class ShowBtnBelowVhDirective {
       this.display = 'none';
     }
   }
-
-  constructor() {}
-
-  ngOnInit() {}
 }

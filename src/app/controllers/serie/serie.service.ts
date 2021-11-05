@@ -15,60 +15,55 @@ import { HttpService } from '../core/http.service';
 export class SerieService {
   constructor(private httpService: HttpService<Data>) {}
 
-  listSeries = (offset: string): Observable<Data> =>
+  listSeries = (offset: number): Observable<Serie[]> =>
     this.httpService
-      .get$('/v1/public/series', this.getParams(offset))
-      .pipe(map((data: Data) => data));
-
-  findSerieById = (id: string): Observable<Serie[]> =>
-    this.httpService
-      .get$(`/v1/public/series/${id}`)
+      .get$('/v1/public/series', this.getParams(String(offset)))
       .pipe(map((data: Data) => data.data.results));
 
-  findSerieByParams = (
-    offset: string,
-    formData: FormGroup
-  ): Observable<Data> => {
-    console.log(formData);
+  findSerieById = (id: string): Observable<Serie> =>
+    this.httpService
+      .get$(`/v1/public/series/${id}`)
+      .pipe(map((data: Data) => data.data.results[0]));
 
-    if (this.isThereValue(formData)) {
+  findSerieByParams = (
+    offset: number,
+    formData: FormGroup
+  ): Observable<Serie[]> => {
+    const arrayOfParams = this.isThereValue(formData);
+    if (arrayOfParams.length > 0) {
       return this.httpService
-        .get$('/v1/public/series', this.getParams(offset, formData))
-        .pipe(map((data: Data) => data));
+        .get$(
+          '/v1/public/series',
+          this.getParams(String(offset), formData, arrayOfParams)
+        )
+        .pipe(map((data: Data) => data.data.results));
     } else {
       return throwError(true);
     }
   };
 
-  getParams = (offset: string, searchData?: FormGroup): HttpParams => {
+  getParams = (
+    offset: string,
+    searchDataForm?: FormGroup,
+    searchData?: string[]
+  ): HttpParams => {
     let params = new HttpParams()
       .append('orderBy', 'title')
       .append('limit', '10')
       .append('offset', offset);
 
     if (searchData) {
-      Object.keys(searchData.value)
-        .filter(
-          (field) => searchData.value[field] && searchData.controls[field].valid
-        )
-        .forEach((field) => {
-          params = params.append(field, searchData.value[field]);
-        });
+      searchData.forEach((field: any) => {
+        params = params.set(field, searchDataForm?.value[field]);
+      });
     }
-    console.log(params);
 
     return params;
   };
 
-  isThereValue = (fields: FormGroup): boolean => {
-    let valid = false;
-
-    Object.keys(fields.value).forEach((field) => {
-      if (fields.value[field] && fields.controls[field].valid) {
-        valid = true;
-      }
-    });
-
-    return valid;
+  isThereValue = (fields: FormGroup): string[] => {
+    return Object.keys(fields.value).filter((field: string) =>
+      fields.value[field] && fields.controls[field].valid ? field : null
+    );
   };
 }

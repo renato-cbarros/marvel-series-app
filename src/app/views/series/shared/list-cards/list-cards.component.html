@@ -8,7 +8,7 @@
     (scrolled)="onScrollDown()"
   >
     <mat-card
-      *ngFor="let serie of series"
+      *ngFor="let serie of getSeriesList"
       [routerLink]="['/home/more-datails', serie.id]"
       class="serie-card"
     >

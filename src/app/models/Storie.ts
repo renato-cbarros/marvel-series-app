@@ -1,6 +1,6 @@
 export interface Storie {
   available: number;
   collectionURI: string;
-  items: [{ name: string; resourceURI: string; type: string }];
+  items: { resourceURI: string; name: string; type: string }[] | [];
   returned: number;
 }

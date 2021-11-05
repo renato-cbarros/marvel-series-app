@@ -19,7 +19,8 @@
           <mat-icon color="primary" class="details-texts-icon"
             >edit_calendar</mat-icon
           >
-          Modified: {{ serieData?.modified | date }}
+          Modified:
+          {{ serieData?.modified ? (serieData?.modified | date) : "" }}
         </span>
       </div>
       <p class="detail-text custom-scroll" [hidden]="!serieData?.description">

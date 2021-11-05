@@ -24,11 +24,9 @@ export class MoreDetailsSerieComponent implements OnInit {
         map((data) => String(data.id).trim()),
         filter((id) => id.length > 0),
         switchMap((id) => this.serieService.findSerieById(id)),
-        map((serie) => serie[0])
       )
       .subscribe((serie: Serie) => {
         this.serieData = serie;
-        console.log(this.serieData);
       });
   }
 }

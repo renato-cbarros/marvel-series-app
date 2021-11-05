@@ -8,13 +8,13 @@ export interface Serie {
   characters: Character;
   comics: Comic;
   creators: Creator;
-  description: string;
+  description: string | null;
   endYear: number;
   events: Event;
   id: number;
   modified: string;
-  next: { name: string; resourceURI: string };
-  previous: { name: string; resourceURI: string };
+  next: { name: string; resourceURI: string } | null;
+  previous: { name: string; resourceURI: string } | null;
   rating: string;
   resourceURI: string;
   startYear: number;

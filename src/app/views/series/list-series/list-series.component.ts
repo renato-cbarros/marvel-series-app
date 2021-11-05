@@ -17,6 +17,6 @@ export class ListSeriesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getList = (offset = 0): Observable<Data> =>
-    this.serieService.listSeries(String(offset));
+  getList = (offset: number): Observable<Serie[]> =>
+    this.serieService.listSeries(offset);
 }

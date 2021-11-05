@@ -1,16 +1,17 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListCardsComponent } from './list-cards.component';
 
 describe('ListCardsComponent', () => {
-  let component: ListCardsComponent;
-  let fixture: ComponentFixture<ListCardsComponent>;
+  let component: ListCardsComponent<any>;
+  let fixture: ComponentFixture<ListCardsComponent<any>>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListCardsComponent ]
-    })
-    .compileComponents();
+      declarations: [ListCardsComponent],
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents();
   });
 
   beforeEach(() => {

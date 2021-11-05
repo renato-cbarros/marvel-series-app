@@ -38,6 +38,18 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Ordem By</mat-label>
+          <mat-select formControlName="orderBy">
+            <mat-option
+              *ngFor="let order of orderBySelect"
+              [value]="orderBy[order]"
+            >
+              {{ order }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
     </form>
   </section>

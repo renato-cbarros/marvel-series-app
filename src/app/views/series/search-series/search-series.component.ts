@@ -34,11 +34,20 @@ export class SearchSeriesComponent implements OnInit {
   };
   seriesTypeSelect = Object.keys(this.seriesType);
 
+  orderBy: any = {
+    Title: 'title',
+    'Start Year': 'startYear',
+    Modified: 'modified',
+  };
+  orderBySelect = Object.keys(this.orderBy);
+
   constructor(
     private serieService: SerieService,
 
     private formBuilder: FormBuilder
-  ) {}
+  ) {
+    this.formDataSearchInstance();
+  }
 
   ngOnInit(): void {
     this.formDataSearchInstance();
@@ -46,7 +55,6 @@ export class SearchSeriesComponent implements OnInit {
     this.formDataSearch.valueChanges
       .pipe(
         filter((value) => this.validFileds(value)),
-        tap((value) => console.log(value)),
         debounceTime(1000),
         distinctUntilChanged(
           (x: any, y: any) => JSON.stringify(x) === JSON.stringify(y)
@@ -82,9 +90,10 @@ export class SearchSeriesComponent implements OnInit {
       startYear: [null],
       modifiedSince: [null],
       seriesType: [null],
+      orderBy: [null],
     });
   };
 
-  getList = (offset = 0): Observable<Data> =>
-    this.serieService.findSerieByParams(String(offset), this.formDataSearch);
+  getList = (offset: number): Observable<Serie[]> =>
+    this.serieService.findSerieByParams(offset, this.formDataSearch);
 }

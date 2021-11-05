@@ -1,7 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { filter, map, take, tap } from 'rxjs/operators';
-import { Data } from 'src/app/models/Data';
+import { filter, map, take } from 'rxjs/operators';
 
 import { Serie } from 'src/app/models/Serie';
 
@@ -19,53 +18,53 @@ export class ListCardsComponent<T> implements OnInit, OnDestroy {
   @Input() scrollDistance = 1;
   @Input() scrollUpDistance = 2;
   // Function to perform the search
-  @Input() callBack!: Function;
+  @Input() callBack: Function = () => {};
   // Refresh the search
   @Input() refresh!: Subject<boolean>;
 
-  series!: Serie[];
+  private series!: Serie[];
 
   constructor() {}
 
   ngOnInit(): void {
-    this.getList();
+    this.setSeriesList();
     this.refreshSearch$();
   }
 
-  refreshSearch$ = () => {
+  private refreshSearch$ = () => {
     if (this.refresh)
       this.refresh.asObservable().subscribe((isRefresh: boolean) => {
         if (isRefresh) {
           this.series = [];
           this.accumItems = 0;
           this.isTotalItems = false;
-          this.getList();
+          this.setSeriesList();
         }
       });
   };
 
-  getList = () =>
+  get getSeriesList(): Serie[] {
+    return this.series;
+  }
+
+  private setSeriesList = () =>
     this.callBack(this.accumItems)
-      .pipe(
-        tap((data: any) => console.log(data.data.results.length)),
-        filter((data: Data) => {
-          if (data.data.results.length < 10) {
+      ?.pipe(
+        filter((series: Serie[]) => {
+          if (series.length < 10) {
             this.isTotalItems = true;
           } else {
             this.isTotalItems = false;
           }
-          return !this.isTotalItems || data.data.results.length > 0;
+          return !this.isTotalItems || series.length > 0;
         }),
-        map((data: Data) =>
-          this.series?.length > 0
-            ? this.series.concat(data.data.results)
-            : data.data.results
+        map((series: Serie[]) =>
+          this.series?.length > 0 ? this.series.concat(series) : series
         ),
         take(1)
       )
       .subscribe(
         (series: Serie[]) => {
-          console.log(series);
           this.series = series;
         },
         (error: boolean) => {
@@ -74,15 +73,13 @@ export class ListCardsComponent<T> implements OnInit, OnDestroy {
       );
 
   onScrollDown = () => {
-    console.log(this.isTotalItems);
     if (!this.isTotalItems) {
       this.accumItems += this.items;
-      this.getList();
+      this.setSeriesList();
     }
   };
 
   ngOnDestroy() {
-    console.log('ngOnDestroy');
     if (this.refresh) this.refresh.unsubscribe();
   }
 }
