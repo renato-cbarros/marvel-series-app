@@ -1,6 +1,6 @@
 <h1 align="left">Marvel serie App</h1>
 
-> Status do Projeto: Em desenvolvimento :warning:
+> Project Status: Under development :warning:
 
 <p align="left">Project for angular studies, aims to list and search Marvel API Comic Series.</p>
 <p align="left">Features: infinite scroll, rxjs operators, reactive search and html lazy loading.</p>
