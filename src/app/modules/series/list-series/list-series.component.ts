@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { map, take, debounceTime, filter, tap } from 'rxjs/operators';
-
-import { Serie } from 'src/app/models/Serie';
-
-import { SerieService } from 'src/app/controllers/serie/serie.service';
-import { Data } from '@angular/router';
 import { Observable } from 'rxjs';
+
+import { Serie } from 'src/app/shared/models/Serie';
+
+import { SerieService } from 'src/app/core/services/serie/serie.service';
 
 @Component({
   selector: 'app-list-series',

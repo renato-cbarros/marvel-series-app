@@ -1,18 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  filter,
-  map,
-  switchMap,
-  take,
-  tap,
-} from 'rxjs/operators';
-import { SerieService } from 'src/app/controllers/serie/serie.service';
-import { Data } from 'src/app/models/Data';
-import { Serie } from 'src/app/models/Serie';
+import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
+
+import { Serie } from 'src/app/shared/models/Serie';
+
+import { SerieService } from 'src/app/core/services/serie/serie.service';
 
 @Component({
   selector: 'app-search-series',

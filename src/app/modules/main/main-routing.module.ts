@@ -10,7 +10,7 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('src/app/views/series/series.module').then(
+          import('src/app/modules/series/series.module').then(
             (m) => m.SeriesModule
           ),
       },

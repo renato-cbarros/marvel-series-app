@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { filter, map, switchMap, tap } from 'rxjs/operators';
-import { SerieService } from 'src/app/controllers/serie/serie.service';
-import { Serie } from 'src/app/models/Serie';
+import { filter, map, switchMap } from 'rxjs/operators';
+
+import { SerieService } from 'src/app/core/services/serie/serie.service';
+import { Serie } from 'src/app/shared/models/Serie';
 
 @Component({
   selector: 'app-more-details-serie',
@@ -23,7 +24,7 @@ export class MoreDetailsSerieComponent implements OnInit {
       .pipe(
         map((data) => String(data.id).trim()),
         filter((id) => id.length > 0),
-        switchMap((id) => this.serieService.findSerieById(id)),
+        switchMap((id) => this.serieService.findSerieById(id))
       )
       .subscribe((serie: Serie) => {
         this.serieData = serie;

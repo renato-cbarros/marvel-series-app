@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SeriesRoutingModule } from './series-routing.module';
 
+// Material
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -11,14 +12,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MatSelectModule } from '@angular/material/select';
 
-import { MoreDetailsSerieComponent } from './more-details-serie/more-details-serie.component';
-import { SearchSeriesComponent } from './search-series/search-series.component';
-import { ListCardsComponent } from './shared/list-cards/list-cards.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 import { SeriesComponent } from './series.component';
 import { ListSeriesComponent } from './list-series/list-series.component';
+import { MoreDetailsSerieComponent } from './more-details-serie/more-details-serie.component';
+import { SearchSeriesComponent } from './search-series/search-series.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,14 @@ import { ListSeriesComponent } from './list-series/list-series.component';
     ListSeriesComponent,
     MoreDetailsSerieComponent,
     SearchSeriesComponent,
-    ListCardsComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     SeriesRoutingModule,
+    SharedModule,
+
     MatCardModule,
     MatDividerModule,
     MatProgressSpinnerModule,
@@ -41,6 +44,7 @@ import { ListSeriesComponent } from './list-series/list-series.component';
     MatInputModule,
     MatSidenavModule,
     MatSelectModule,
+
     InfiniteScrollModule,
   ],
 })

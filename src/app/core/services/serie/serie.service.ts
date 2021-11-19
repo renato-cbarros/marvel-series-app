@@ -1,13 +1,13 @@
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Observable, of, throwError } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-import { Data } from 'src/app/models/Data';
-import { Serie } from 'src/app/models/Serie';
+import { Data } from 'src/app/shared/models/Data';
+import { Serie } from 'src/app/shared/models/Serie';
 
-import { HttpService } from '../core/http.service';
+import { HttpService } from '../../http/http.service';
 
 @Injectable({
   providedIn: 'root',

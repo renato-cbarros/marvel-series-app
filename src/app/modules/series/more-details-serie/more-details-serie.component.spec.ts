@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 
-import { MOCK_LIST_SERIES } from 'src/app/controllers/serie/mocks/list-series.mock';
+import { MOCK_LIST_SERIES } from 'src/app/core/mocks/list-series.mock';
 import { SerieService } from 'src/app/controllers/serie/serie.service';
 
 import { Serie } from 'src/app/models/Serie';

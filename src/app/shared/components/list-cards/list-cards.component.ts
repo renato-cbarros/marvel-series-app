@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { filter, map, take } from 'rxjs/operators';
 
-import { Serie } from 'src/app/models/Serie';
+import { Serie } from '../../models/Serie';
 
 @Component({
   selector: 'app-list-cards',
