@@ -1,0 +1,29 @@
+<section *ngIf="images.length > 0" class="container-carousel">
+  <div #carouselContainer class="content-carousel-wrapper">
+    <!-- Images -->
+    <div #carousel class="content-carousel-imgs">
+      <img
+        *ngFor="let img of images; let i = index"
+        [src]="img?.src"
+        [title]="img?.title"
+        [alt]="img?.alt"
+        [id]="'img_carousel_id_' + i"
+      />
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div *ngIf="carouselConfig.arrowsBtn" class="content-carousel-arrows-btns">
+    <button (click)="onClickLeft()"><i class="arrow left"></i></button>
+    <button (click)="onClickRight()"><i class="arrow right"></i></button>
+  </div>
+
+  <div *ngIf="carouselConfig.dotsBtn" class="content-carousel-dots-btns">
+    <button
+      type="button"
+      *ngFor="let img of images; let i = index"
+      [ngClass]="{ 'dot-checked': i === currentIndex }"
+      (click)="onSetPosition(i)"
+    ></button>
+  </div>
+</section>

@@ -1,15 +1,18 @@
 <section class="list-container">
   <div
+    *ngIf="getSeriesList"
     class="list-content"
     infinite-scroll
     [infiniteScrollDistance]="scrollDistance"
     [infiniteScrollUpDistance]="scrollUpDistance"
     [infiniteScrollThrottle]="throttle"
+    [infiniteScrollContainer]="'.section-main'"
+    [fromRoot]="true"
     (scrolled)="onScrollDown()"
   >
     <mat-card
       *ngFor="let serie of getSeriesList"
-      [routerLink]="['/home/more-datails', serie.id]"
+      [routerLink]="['/home/search/more-datails', serie.id]"
       class="serie-card"
     >
       <mat-card-header class="serie-card-header custom-scroll">

@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-btn-back-to-top',
   templateUrl: './btn-back-to-top.component.html',
   styleUrls: ['./btn-back-to-top.component.scss'],
 })
-export class BtnBackToTopComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class BtnBackToTopComponent {
+  @Input() elementWithScroll!: HTMLElement;
 
   backToTop = () => {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    this.elementWithScroll.scrollTop = 0; // For Safari
   };
 }

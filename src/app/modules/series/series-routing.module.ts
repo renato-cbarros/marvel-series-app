@@ -11,8 +11,8 @@ const routes: Routes = [
     component: SeriesComponent,
     children: [
       { path: 'list', component: ListSeriesComponent },
-      { path: 'more-datails/:id', component: MoreDetailsSerieComponent },
       { path: 'search', component: SearchSeriesComponent },
+      { path: 'search/more-datails/:id', component: MoreDetailsSerieComponent },
       { path: '', redirectTo: 'list', pathMatch: 'full' },
       { path: '**', redirectTo: 'list' },
     ],

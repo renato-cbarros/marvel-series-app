@@ -16,12 +16,14 @@ import { ListCardsComponent } from './components/list-cards/list-cards.component
 import { BtnBackToTopComponent } from './components/btn-back-to-top/btn-back-to-top.component';
 import { ShowBtnBelowVhDirective } from './directives/show-btn-below-vh/show-btn-below-vh.directive';
 import { MatButtonModule } from '@angular/material/button';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
     BtnBackToTopComponent,
     ListCardsComponent,
     ShowBtnBelowVhDirective,
+    CarouselComponent,
   ],
   imports: [
     CommonModule,
@@ -37,6 +39,11 @@ import { MatButtonModule } from '@angular/material/button';
     MatDividerModule,
     MatButtonModule,
   ],
-  exports: [BtnBackToTopComponent, ListCardsComponent, ShowBtnBelowVhDirective],
+  exports: [
+    BtnBackToTopComponent,
+    ListCardsComponent,
+    ShowBtnBelowVhDirective,
+    CarouselComponent,
+  ],
 })
 export class SharedModule {}

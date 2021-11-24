@@ -1,15 +1,17 @@
 .list-container {
   width: 100%;
-  height: 101%;
+  min-height: 100%;
+  padding: 16px;
   background-color: #212121;
   transition: 1s ease-in;
 
   .list-content {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    position: relative;
 
     .serie-card {
       width: 340px;
@@ -69,7 +71,7 @@
 .spinner-container {
   display: flex;
   justify-content: center;
-  padding: 16px;
+  padding: 26px 16px;
 }
 
 .not-found-container {

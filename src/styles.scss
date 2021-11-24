@@ -1,4 +1,4 @@
-/*  RESET CSS */
+//  RESET CSS
 * {
   box-sizing: border-box;
   border: none;
@@ -7,6 +7,7 @@
   list-style: none;
 }
 
+// Global
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -14,21 +15,16 @@ body {
 
 html,
 body {
+  width: 100%;
   height: 100%;
+}
 
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #000000d2;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 50px;
-    background-color: #ffffff62;
-  }
-
+.section-main {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #000000;
+  position: relative;
   scroll-behavior: smooth;
 }
 
@@ -45,5 +41,11 @@ body {
   &::-webkit-scrollbar-thumb {
     border-radius: 100px;
     background-color: #ffffff36;
+  }
+}
+
+.section-main.custom-scroll {
+  &::-webkit-scrollbar {
+    width: 8px;
   }
 }

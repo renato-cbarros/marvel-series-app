@@ -1,6 +1,15 @@
-<app-list-cards
-  [isTotalItems]="false"
-  [items]="10"
-  [accumItems]="0"
-  [callBack]="getList"
-></app-list-cards>
+<section #sectionMain class="section-main custom-scroll">
+  <app-carousel
+    *ngIf="carouselImages.length > 0"
+    [images]="carouselImages"
+  ></app-carousel>
+
+  <app-list-cards
+    [throttle]="300"
+    [isTotalItems]="false"
+    [items]="10"
+    [accumItems]="0"
+    [callBack]="getList"
+  ></app-list-cards>
+</section>
+<app-btn-back-to-top [elementWithScroll]="sectionMain"></app-btn-back-to-top>

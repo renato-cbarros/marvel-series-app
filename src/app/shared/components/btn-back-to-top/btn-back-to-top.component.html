@@ -1,4 +1,8 @@
-<div show-btn-Below-vh class="btn-back-top-container">
+<div
+  show-btn-Below-vh
+  [elementWithScroll]="elementWithScroll"
+  class="btn-back-top-container"
+>
   <button mat-mini-fab color="accent" (click)="backToTop()">
     <mat-icon>expand_less</mat-icon>
   </button>

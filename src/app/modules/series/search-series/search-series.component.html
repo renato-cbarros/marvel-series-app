@@ -1,4 +1,4 @@
-<section class="search-container">
+<section #sectionMain class="search-container section-main custom-scroll">
   <section class="search-form-container">
     <form
       [formGroup]="formDataSearch"
@@ -64,3 +64,4 @@
   >
   </app-list-cards>
 </section>
+<app-btn-back-to-top [elementWithScroll]="sectionMain"></app-btn-back-to-top>
