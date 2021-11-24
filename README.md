@@ -5,7 +5,7 @@
 <p align="left">Project for angular studies, aims to list and search Marvel API Comic Series.</p>
 <p align="left">Features: infinite scroll, rxjs operators, reactive search and html lazy loading.</p>
 
-https://user-images.githubusercontent.com/42192877/140590100-76463d7d-8ea3-4f16-ba4f-c0b9c20d13c4.mp4
+![MarvelSeries-Google-Chrome-2021-11-23-21-43-31-_1_-_1_](https://user-images.githubusercontent.com/42192877/143151615-6f5945b4-5573-417e-8280-bdd11d2743f3.gif)
 
 ### Marvel API documentation
 1. https://developer.marvel.com/
