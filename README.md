@@ -1,4 +1,4 @@
-<h1 align="left">Marvel serie App</h1>
+<h1 align="left">Marvel series App</h1>
 
 > Project Status: Under development :warning:
 
