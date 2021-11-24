@@ -3,7 +3,7 @@
 > Project Status: Under development :warning:
 
 <p align="left">Project for angular studies, aims to list and search Marvel API Comic Series.</p>
-<p align="left">Features: infinite scroll, rxjs operators, reactive search and html lazy loading.</p>
+<p align="left">Features: infinite scroll, carousel, rxjs operators, reactive search and html lazy loading.</p>
 
 ![MarvelSeries-Google-Chrome-2021-11-23-21-43-31-_1_-_1_](https://user-images.githubusercontent.com/42192877/143151615-6f5945b4-5573-417e-8280-bdd11d2743f3.gif)
 
