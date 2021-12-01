@@ -18,12 +18,12 @@ export class SerieService {
   listSeries = (offset: number): Observable<Serie[]> =>
     this.httpService
       .get$('/v1/public/series', this.getParams(String(offset)))
-      .pipe(map((data: Data) => data.data.results));
+      .pipe(map((res: Data) => this.fixImagesUrl(res.data.results)));
 
   findSerieById = (id: string): Observable<Serie> =>
     this.httpService
       .get$(`/v1/public/series/${id}`)
-      .pipe(map((data: Data) => data.data.results[0]));
+      .pipe(map((res: Data) => this.fixImagesUrl(res.data.results)[0]));
 
   findSerieByParams = (
     offset: number,
@@ -36,7 +36,7 @@ export class SerieService {
           '/v1/public/series',
           this.getParams(String(offset), formData, arrayOfParams)
         )
-        .pipe(map((data: Data) => data.data.results));
+        .pipe(map((res: Data) => this.fixImagesUrl(res.data.results)));
     } else {
       return throwError(true);
     }
@@ -65,5 +65,14 @@ export class SerieService {
     return Object.keys(fields.value).filter((field: string) =>
       fields.value[field] && fields.controls[field].valid ? field : null
     );
+  };
+
+  fixImagesUrl = (series: Serie[]) => {
+    series.map((serie: Serie) => {
+      serie.thumbnail.path = serie.thumbnail.path.split('http:')[1];
+      return serie;
+    });
+
+    return series;
   };
 }
